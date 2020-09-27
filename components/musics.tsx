@@ -3,19 +3,27 @@ import Player from "./player";
 import useSWR from "swr";
 import { useState } from "react";
 
-const fetcher = (id: number) => {
+const fetcher = (_: any) => {
   const db = new MusicDatase();
   return db.musics.toArray();
 };
 
-function handleClick(music: any, setter: Function) {
-  const url = URL.createObjectURL(music.file);
-  setter(url);
-}
-
 const Musics = () => {
-  const { data, error } = useSWR(3, fetcher);
+  const { data, error } = useSWR("dummy key", fetcher);
   const [url, setUrl] = useState("");
+  const [title, setTitle] = useState("");
+
+  function handleClick(music: any, setUrl: Function, setTitle: Function) {
+    const url = URL.createObjectURL(music.file);
+    setTitle(music.name);
+    setUrl(url);
+  }
+
+  async function handleDestroy(id: number) {
+    const db = new MusicDatase();
+    await db.musics.where("id").anyOf(id).delete();
+    window.location.reload();
+  }
 
   if (data === undefined) {
     return <span></span>;
@@ -25,7 +33,8 @@ const Musics = () => {
 
   return (
     <div>
-      <Player url={url} />
+      <Player url={url} title={title} />
+      <hr />
       <table className="table-auto">
         <thead>
           <tr>
@@ -41,11 +50,14 @@ const Musics = () => {
                 <td className="border px-4 py-2 space-x-4">
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => handleClick(music, setUrl)}
+                    onClick={() => handleClick(music, setUrl, setTitle)}
                   >
                     Play
                   </button>
-                  <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                  <button
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+                    onClick={() => handleDestroy(music.id)}
+                  >
                     Destroy
                   </button>
                 </td>
