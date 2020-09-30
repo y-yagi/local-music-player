@@ -61,7 +61,14 @@ const Musics = () => {
                   </button>
                   <button
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => handleDestroy(music.id)}
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Are you sure you wish to delete this item?"
+                        )
+                      )
+                        handleDestroy(music.id);
+                    }}
                   >
                     Destroy
                   </button>
