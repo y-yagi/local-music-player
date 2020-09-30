@@ -19,7 +19,11 @@ const Musics = () => {
     setUrl(url);
   }
 
-  async function handleDestroy(id: number) {
+  async function handleDestroy(id: number | undefined) {
+    if (id === undefined) {
+      return;
+    }
+
     const db = new MusicDatase();
     await db.musics.where("id").anyOf(id).delete();
     window.location.reload();
