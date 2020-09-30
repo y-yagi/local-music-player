@@ -2,8 +2,6 @@ import Container from "../components/container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import Musics from "../components/musics";
-import Uploader from "../components/uploader";
-import SectionSeparotr from "../components/section-separator";
 import Head from "next/head";
 
 const Index = () => {
@@ -16,8 +14,6 @@ const Index = () => {
         <Container>
           <Intro />
           <Musics />
-          <SectionSeparotr />
-          <Uploader />
         </Container>
       </Layout>
     </>

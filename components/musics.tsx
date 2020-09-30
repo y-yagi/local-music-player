@@ -1,5 +1,7 @@
 import MusicDatase from "../lib/music_database";
 import Player from "./player";
+import Uploader from "./uploader";
+import SectionSeparotr from "./section-separator";
 import { useState } from "react";
 import MusicType from "../types/music";
 
@@ -18,6 +20,10 @@ const Musics = () => {
     const url = URL.createObjectURL(music.file);
     setTitle(music.name);
     setUrl(url);
+  }
+
+  function handleUpload() {
+    fetchData();
   }
 
   async function handleDestroy(id: number | undefined) {
@@ -78,6 +84,8 @@ const Musics = () => {
           })}
         </tbody>
       </table>
+      <SectionSeparotr />
+      <Uploader onFileUploaded={handleUpload} />
     </div>
   );
 };
