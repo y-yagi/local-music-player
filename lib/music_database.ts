@@ -1,13 +1,8 @@
 import Dexie from "dexie";
-
-interface Music {
-  id?: number;
-  name?: string;
-  file?: File;
-}
+import MusicType from "../types/music";
 
 export default class MusicDatabase extends Dexie {
-  public musics: Dexie.Table<Music, number>;
+  public musics: Dexie.Table<MusicType, number>;
 
   public constructor() {
     super("MusicDatabase");

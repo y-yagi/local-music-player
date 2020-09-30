@@ -1,22 +1,29 @@
 import MusicDatase from "../lib/music_database";
 import Player from "./player";
-import useSWR from "swr";
+import Uploader from "./uploader";
+import SectionSeparotr from "./section-separator";
 import { useState } from "react";
-
-const fetcher = (_: any) => {
-  const db = new MusicDatase();
-  return db.musics.toArray();
-};
+import MusicType from "../types/music";
 
 const Musics = () => {
-  const { data, error } = useSWR("dummy key", fetcher);
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
+  const [musics, setMusics] = useState<MusicType[] | undefined>(undefined);
+
+  async function fetchData() {
+    const db = new MusicDatase();
+    const musics = await db.musics.toArray();
+    setMusics(musics);
+  }
 
   function handleClick(music: any, setUrl: Function, setTitle: Function) {
     const url = URL.createObjectURL(music.file);
     setTitle(music.name);
     setUrl(url);
+  }
+
+  function handleUpload() {
+    fetchData();
   }
 
   async function handleDestroy(id: number | undefined) {
@@ -26,11 +33,11 @@ const Musics = () => {
 
     const db = new MusicDatase();
     await db.musics.where("id").anyOf(id).delete();
-    window.location.reload();
+    fetchData();
   }
 
-  if (data === undefined) {
-    return <span></span>;
+  if (musics === undefined) {
+    fetchData();
   }
 
   // TODO: Fix the case taht data is only one.
@@ -47,7 +54,7 @@ const Musics = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((music) => {
+          {musics?.map((music) => {
             return (
               <tr key={music.id}>
                 <td className="border px-4 py-2">{music.name}</td>
@@ -60,7 +67,14 @@ const Musics = () => {
                   </button>
                   <button
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => handleDestroy(music.id)}
+                    onClick={() => {
+                      if (
+                        window.confirm(
+                          "Are you sure you wish to delete this item?"
+                        )
+                      )
+                        handleDestroy(music.id);
+                    }}
                   >
                     Destroy
                   </button>
@@ -70,6 +84,8 @@ const Musics = () => {
           })}
         </tbody>
       </table>
+      <SectionSeparotr />
+      <Uploader onFileUploaded={handleUpload} />
     </div>
   );
 };

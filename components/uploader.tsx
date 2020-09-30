@@ -1,7 +1,11 @@
 import React from "react";
 import MusicDatase from "../lib/music_database";
 
-const Uploader = () => {
+type UploaderProps = {
+  onFileUploaded: Function;
+};
+
+const Uploader = (props: UploaderProps) => {
   const fileInput = React.createRef<HTMLInputElement>();
   const db = new MusicDatase();
 
@@ -14,6 +18,7 @@ const Uploader = () => {
       if ((await db.musics.where({ name: name }).count()) === 0) {
         const id = await db.musics.add({ name: name, file: file });
       }
+      props.onFileUploaded();
     }).catch((e) => {
       alert(e.stack || e);
     });
