@@ -20,6 +20,14 @@ const Player = (props: any) => {
     }
   }
 
+  function stateText() {
+    if (playing === true) {
+      return "Playing";
+    } else {
+      return "Stopping";
+    }
+  }
+
   if (props.url === "") {
     return (
       <section>
@@ -50,7 +58,7 @@ const Player = (props: any) => {
           <div className="mt-4 md:mt-0 md:ml-6">
             <div className="flex space-x-4">
               <span className="uppercase tracking-wide text-sm text-indigo-600 font-bold">
-                Playing
+                {stateText()}
               </span>
               <span className="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline space-x-4">
                 {props.title}
