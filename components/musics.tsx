@@ -49,7 +49,7 @@ const Musics = () => {
       <table className="table-auto">
         <thead>
           <tr>
-            <th className="px-4 py-2">Title</th>
+            <th className="px-4 py-2"></th>
             <th className="px-4 py-2"></th>
           </tr>
         </thead>
@@ -57,8 +57,10 @@ const Musics = () => {
           {musics?.map((music) => {
             return (
               <tr key={music.id}>
-                <td className="border px-4 py-2">{music.name}</td>
-                <td className="border px-4 py-2 space-x-4">
+                <td className="border px-4 py-2 space-x-2 text-center block lg:table-cell">
+                  {music.name}
+                </td>
+                <td className="border px-4 py-2 space-x-2 text-center block lg:table-cell">
                   <button
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                     onClick={() => handleClick(music, setUrl, setTitle)}
