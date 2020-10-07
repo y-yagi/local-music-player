@@ -12,16 +12,17 @@ const Uploader = (props: UploaderProps) => {
   function handleChange(event: any) {
     event.preventDefault();
 
-    db.transaction("rw", db.musics, async () => {
-      const file = (fileInput as any).current.files[0];
-      const name = file?.name;
-      if ((await db.musics.where({ name: name }).count()) === 0) {
-        const id = await db.musics.add({ name: name, file: file });
-      }
-      props.onFileUploaded();
-    }).catch((e) => {
-      alert(e.stack || e);
+    Array.from((fileInput as any).current.files).forEach((file: any) => {
+      db.transaction("rw", db.musics, async () => {
+        const name = file?.name;
+        if ((await db.musics.where({ name: name }).count()) === 0) {
+          const id = await db.musics.add({ name: name, file: file });
+        }
+      }).catch((e) => {
+        alert(e.stack || e);
+      });
     });
+    props.onFileUploaded();
   }
 
   return (
@@ -33,6 +34,7 @@ const Uploader = (props: UploaderProps) => {
           className="hidden"
           accept="audio/*"
           ref={fileInput}
+          multiple={true}
           onChange={handleChange}
         />
       </label>
