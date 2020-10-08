@@ -16,7 +16,7 @@ const Musics = () => {
     setMusics(musics);
   }
 
-  function handleClick(music: any, setUrl: Function, setTitle: Function) {
+  function handleClick(music: MusicType, setUrl: Function, setTitle: Function) {
     const url = URL.createObjectURL(music.file);
     setTitle(music.name);
     setUrl(url);

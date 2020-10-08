@@ -1,7 +1,12 @@
 import ReactHowler from "react-howler";
 import { useState } from "react";
 
-const Player = (props: any) => {
+type Props = {
+  url: string;
+  title: string;
+};
+
+const Player = (props: Props) => {
   const [playing, setPlaying] = useState(true);
 
   function action() {
