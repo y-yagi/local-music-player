@@ -9,10 +9,12 @@ const Uploader = (props: UploaderProps) => {
   const fileInput = React.createRef<HTMLInputElement>();
   const db = new MusicDatase();
 
-  function handleChange(event: any) {
+  function handleChange(event: React.ChangeEvent) {
     event.preventDefault();
 
-    Array.from((fileInput as any).current.files).forEach((file: any) => {
+    const files = fileInput.current?.files || [];
+    for (let i = 0; i < files?.length; i++) {
+      const file = files[i];
       db.transaction("rw", db.musics, async () => {
         const name = file?.name;
         if ((await db.musics.where({ name: name }).count()) === 0) {
@@ -21,7 +23,7 @@ const Uploader = (props: UploaderProps) => {
       }).catch((e) => {
         alert(e.stack || e);
       });
-    });
+    }
     props.onFileUploaded();
   }
 
