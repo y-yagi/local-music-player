@@ -12,8 +12,12 @@ const Musics = () => {
 
   async function fetchData() {
     const db = new MusicDatase();
-    const musics = await db.musics.toArray();
-    setMusics(musics);
+    try {
+      const musics = await db.musics.toArray();
+      setMusics(musics);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   function handleClick(music: MusicType, setUrl: Function, setTitle: Function) {
