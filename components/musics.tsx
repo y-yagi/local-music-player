@@ -44,8 +44,6 @@ const Musics = () => {
     fetchData();
   }
 
-  // TODO: Fix the case taht data is only one.
-
   return (
     <div>
       <Player url={url} title={title} />
