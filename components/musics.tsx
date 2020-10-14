@@ -58,7 +58,7 @@ const Musics = () => {
         <tbody>
           {musics?.map((music) => {
             return (
-              <tr key={music.id}>
+              <tr key={music.id} className="border-2 border-gray-600">
                 <td className="border px-4 py-2 space-x-2 text-center block lg:table-cell">
                   {music.name}
                 </td>
