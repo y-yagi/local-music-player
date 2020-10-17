@@ -9,6 +9,11 @@ type Props = {
 const Player = (props: Props) => {
   const [playing, setPlaying] = useState(true);
 
+  if (typeof navigator !== "undefined" && navigator && navigator.mediaSession) {
+    navigator.mediaSession.setActionHandler("play", play);
+    navigator.mediaSession.setActionHandler("pause", pause);
+  }
+
   function action() {
     if (playing === true) {
       setPlaying(false);
@@ -25,6 +30,41 @@ const Player = (props: Props) => {
     }
   }
 
+  function play() {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator &&
+      navigator.mediaSession
+    ) {
+      setPlaying(true);
+      navigator.mediaSession.playbackState = "playing";
+    }
+  }
+
+  function pause() {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator &&
+      navigator.mediaSession
+    ) {
+      setPlaying(false);
+      navigator.mediaSession.playbackState = "paused";
+    }
+  }
+
+  function onPlay() {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator &&
+      navigator.mediaSession
+    ) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: props.title,
+      });
+      navigator.mediaSession.playbackState = "playing";
+    }
+  }
+
   if (props.url === "") {
     return <section></section>;
   }
@@ -38,6 +78,7 @@ const Player = (props: Props) => {
           format={["mp3"]}
           playing={playing}
           loop={true}
+          onPlay={() => onPlay()}
         />
       }
       <section>
