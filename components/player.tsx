@@ -10,6 +10,39 @@ const Player = (props: Props) => {
     return <section></section>;
   }
 
+  if (typeof navigator !== "undefined" && navigator && navigator.mediaSession) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: props.title,
+    });
+    navigator.mediaSession.playbackState = "playing";
+    navigator.mediaSession.setActionHandler("play", play);
+    navigator.mediaSession.setActionHandler("pause", pause);
+  }
+
+  function play() {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator &&
+      navigator.mediaSession
+    ) {
+      const audio = document.querySelector("audio");
+      audio?.play();
+      navigator.mediaSession.playbackState = "playing";
+    }
+  }
+
+  function pause() {
+    if (
+      typeof navigator !== "undefined" &&
+      navigator &&
+      navigator.mediaSession
+    ) {
+      const audio = document.querySelector("audio");
+      audio?.pause();
+      navigator.mediaSession.playbackState = "paused";
+    }
+  }
+
   // TODO: Get format from title.
   return (
     <section>
