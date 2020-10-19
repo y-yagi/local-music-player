@@ -14,7 +14,7 @@
     "dexie": "^3.0.2",
     "next": "^9.5.5",
     "next-pwa": "^3.1.5",
-    "react": "^16.13.0",
+    "react": "^16.14.0",
     "react-audio-player": "^0.14.0",
     "react-dom": "^16.13.0",
     "react-howler": "^4.0.0",
