@@ -13,7 +13,7 @@ const Musics = () => {
   async function fetchData() {
     const db = new MusicDatase();
     try {
-      const musics = await db.musics.toArray();
+      const musics = await db.musics.orderBy("id").toArray();
       setMusics(musics);
     } catch (e) {
       console.error(e);
