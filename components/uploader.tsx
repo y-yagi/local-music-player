@@ -18,7 +18,11 @@ const Uploader = (props: UploaderProps) => {
       db.transaction("rw", db.musics, async () => {
         const name = file?.name;
         if ((await db.musics.where({ name: name }).count()) === 0) {
-          const id = await db.musics.add({ name: name, file: file });
+          const id = await db.musics.add({
+            name: name,
+            file: file,
+            importedAt: new Date(),
+          });
         }
       }).catch((e) => {
         alert(e.stack || e);
