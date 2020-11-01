@@ -3,17 +3,35 @@ import Player from "./player";
 import Uploader from "./uploader";
 import SectionSeparotr from "./section-separator";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 import MusicType from "../types/music";
 
 const Musics = () => {
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [musics, setMusics] = useState<MusicType[] | undefined>(undefined);
+  const router = useRouter();
+  const { sort } = router.query;
 
   async function fetchData() {
     const db = new MusicDatase();
+    console.log(sort);
     try {
       const musics = await db.musics.orderBy("id").toArray();
+      if (sort === "title") {
+        musics.sort(function (a, b) {
+          if (
+            a.name === undefined ||
+            b.name === undefined ||
+            a.name === b.name
+          ) {
+            return 0;
+          }
+          return a.name > b.name ? 1 : -1;
+        });
+      }
+
       setMusics(musics);
     } catch (e) {
       console.error(e);
@@ -48,6 +66,12 @@ const Musics = () => {
     <div>
       <Player url={url} title={title} />
       <hr />
+
+      <div className="flex justify-center">
+        <Link href="?sort=title">
+          <a>Sort by Title</a>
+        </Link>
+      </div>
       <table className="table-auto">
         <thead>
           <tr>
