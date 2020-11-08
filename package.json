@@ -7,7 +7,8 @@
     "start": "next start",
     "typecheck": "tsc",
     "pretty": "yarn prettier --write .",
-    "pretty-check": "yarn prettier --check ."
+    "pretty-check": "yarn prettier --check .",
+    "find:unused": "next-unused"
   },
   "dependencies": {
     "classnames": "2.2.6",
@@ -31,7 +32,13 @@
     "@types/wicg-mediasession": "^1.1.0",
     "cypress": "^5.4.0",
     "cypress-file-upload": "^4.1.1",
+    "next-unused": "^0.0.3",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.1.1"
+  },
+  "next-unused": {
+    "include": [
+      "components"
+    ]
   }
 }
