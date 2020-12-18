@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "classnames": "2.2.6",
-    "dexie": "^3.0.2",
+    "dexie": "^3.0.3",
     "next": "^10.0",
     "next-pwa": "^3.1.5",
     "react": "^17.0.1",
