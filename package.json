@@ -14,7 +14,7 @@
     "classnames": "2.2.6",
     "dexie": "^3.0.3",
     "next": "^10.0",
-    "next-pwa": "^3.1.5",
+    "next-pwa": "^5.2.13",
     "react": "^17.0.1",
     "react-audio-player": "^0.14.0",
     "react-dom": "^17.0.1",
