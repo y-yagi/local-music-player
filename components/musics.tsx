@@ -16,7 +16,6 @@ const Musics = () => {
 
   async function fetchData() {
     const db = new MusicDatase();
-    console.log(sort);
     try {
       const musics = await db.musics.orderBy("id").toArray();
       if (sort === "title") {
@@ -68,7 +67,7 @@ const Musics = () => {
       <hr />
 
       <div className="flex justify-center">
-        <Link href="?sort=title">
+        <Link href="/?sort=title">
           <a>Sort by Title</a>
         </Link>
       </div>
