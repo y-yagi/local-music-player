@@ -16,7 +16,7 @@
     "next": "^10.0",
     "next-pwa": "^5.2.15",
     "react": "^17.0.1",
-    "react-audio-player": "^0.14.0",
+    "react-audio-player": "^0.17.0",
     "react-dom": "^17.0.1",
     "react-howler": "^5.0.0",
     "swr": "^0.5.5",
