@@ -11,7 +11,7 @@
     "find:unused": "next-unused"
   },
   "dependencies": {
-    "classnames": "2.2.6",
+    "classnames": "2.3.1",
     "dexie": "^3.0.3",
     "next": "^10.0",
     "next-pwa": "^5.2.15",
