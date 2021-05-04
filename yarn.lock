@@ -2269,10 +2269,10 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.4.tgz#b156d7be03b84ff425c9a0a4b1e5f4da9c5ca888"
   integrity sha512-xc8DUsCLmjvCfoD7LTGE0ou2MIWLx0K9RCZwSHMOdynqRsP4MtUcLeqh1HcQ2dInwDTqn+3CE0/FZh1et+p4jA==
 
-cypress-file-upload@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/cypress-file-upload/-/cypress-file-upload-5.0.6.tgz#90a4a49ac4d147f955a642a25b6b3f0706a767b5"
-  integrity sha512-Zop7M8xhP9WSoc5tVYJcUUn+iPn3RpsOEzHaTUKFQPiqxD5Bz19azO/BwiyuNJ5m82zPMd0i+KY/ubVog8cyGQ==
+cypress-file-upload@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/cypress-file-upload/-/cypress-file-upload-5.0.7.tgz#acf24fe08a92b2d0c892a58b56811fb933d34ea9"
+  integrity sha512-cgWsWx7igxjyyVm9/VJ9ukdy69jL00I7z0lrwUWtXXLPvX4neO+8JAZ054Ax8Xf+mdV9OerenXzb9nqRoafjHA==
 
 cypress@^7.2.0:
   version "7.2.0"

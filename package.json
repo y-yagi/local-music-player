@@ -31,7 +31,7 @@
     "@types/react-dom": "^17.0.3",
     "@types/wicg-mediasession": "^1.1.0",
     "cypress": "^7.2.0",
-    "cypress-file-upload": "^5.0.6",
+    "cypress-file-upload": "^5.0.7",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1"
