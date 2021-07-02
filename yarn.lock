@@ -4913,10 +4913,10 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-howler@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-howler/-/react-howler-5.0.0.tgz#6458c8c6eac3a64d05213d9e7cd1d7d81183f94d"
-  integrity sha512-0JJapjFv0rd7sAZ9l9TuKVN2m4aRN3/yQYzRKQpaoK0FXldzM6LuP2XN/QetlubAqHF5F3wrk29QF0gngj+gRQ==
+react-howler@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-howler/-/react-howler-5.1.0.tgz#858621c514cb79dae6bd8bfbc44e1b28511050ff"
+  integrity sha512-UfVW5QrerR7vItqVf1H7KRGaReSyiW/5k/CCrV0c+ksFMllRIztUNTn+65qu2Oh8/nOjCvbDhhrOyal8qetfdA==
   dependencies:
     howler "^2.2.0"
     prop-types "^15.5.6"
