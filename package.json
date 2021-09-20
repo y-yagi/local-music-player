@@ -34,7 +34,7 @@
     "cypress-file-upload": "^5.0.8",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.1"
   },
   "next-unused": {
     "include": [
