@@ -1,7 +1,7 @@
 type MusicType = {
   id?: number;
   name?: string;
-  file?: File;
+  file: Blob;
   importedAt?: Date;
 };
 
