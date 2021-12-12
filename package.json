@@ -40,5 +40,8 @@
     "include": [
       "components"
     ]
+  },
+  "engines": {
+    "node": ">=16 <17"
   }
 }
