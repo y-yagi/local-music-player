@@ -40,5 +40,11 @@
     "include": [
       "components"
     ]
+  },
+  "engines": {
+    "node": ">=14 <15"
+  },
+  "volta": {
+    "node": "14.18.2"
   }
 }
