@@ -1,0 +1,27 @@
+name: playwright tests
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Run yarn install
+        run: yarn install
+
+      - name: Start server
+        run: yarn run dev &
+
+      - name: Install chromium
+        run: yarn playwright install-deps chromium
+
+      - name: Run tests
+        run: yarn playwright test
