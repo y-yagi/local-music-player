@@ -24,4 +24,4 @@ jobs:
         run: yarn playwright install-deps chromium
 
       - name: Run tests
-        run: yarn playwright test
+        run: yarn playwright test --project=chromium
