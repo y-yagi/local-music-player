@@ -3,6 +3,7 @@ import { PlaywrightTestConfig, devices } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   use: {
     trace: "on-first-retry",
+    video: "on",
   },
   projects: [
     {
