@@ -33,10 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-/cypress/videos/
-/cypress/screenshots/
-
 **/public/workbox-*.js
 **/public/sw.js
 **/public/workbox-*.js.map
 **/public/sw.js.map
+
+test-results
