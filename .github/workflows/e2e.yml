@@ -24,4 +24,4 @@ jobs:
         run: yarn playwright install
 
       - name: Run tests
-        run: yarn playwright test --project=chromium
+        run: yarn test
