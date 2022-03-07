@@ -22,7 +22,7 @@
     "react-howler": "^5.2.0",
     "swr": "^1.1.2",
     "tailwindcss": "^1.9.6",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.18.0",
