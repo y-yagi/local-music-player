@@ -68,9 +68,7 @@ const Musics = () => {
       <hr />
 
       <div className="flex justify-center">
-        <Link href="?sort=title">
-          <a>Sort by Title</a>
-        </Link>
+        <Link href="?sort=title">Sort by Title</Link>
       </div>
       <table className="table-auto">
         <thead>
