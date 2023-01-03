@@ -16,7 +16,6 @@ const Musics = () => {
 
   async function fetchData() {
     const db = new MusicDatase();
-    console.log(sort);
     try {
       const musics = await db.musics.orderBy("id").toArray();
       if (sort === "title") {
