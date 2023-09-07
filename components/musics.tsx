@@ -95,7 +95,7 @@ const Musics = () => {
                     onClick={() => {
                       if (
                         window.confirm(
-                          `Are you sure to delete '${music.name}'?`
+                          `Are you sure to delete '${music.name}'?`,
                         )
                       )
                         handleDestroy(music.id);
