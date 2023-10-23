@@ -256,10 +256,10 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
 
-"@types/wicg-mediasession@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@types/wicg-mediasession/-/wicg-mediasession-1.1.4.tgz#5b30c50384c05e5b54cf1c4cb530e8ca63233417"
-  integrity sha512-x6qWKaAoae/yjKThSsFeZ4SP6036zLrYUOx3Mg1BrbUR38FiKQetWO8owq261XXkdsLg52PyQ2/BZ8Wy038woQ==
+"@types/wicg-mediasession@^1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@types/wicg-mediasession/-/wicg-mediasession-1.1.6.tgz#a4c407f496c581520affaab47b5a7f407ca897ce"
+  integrity sha512-WIM1wlmc32kYNFsmhDpFMnKReoc0m3gIk8/cMS3tn8Tcw7btq482J9G9VhuJciUYskZEyyLm9N8dx3LstqHuYQ==
 
 "@types/yargs-parser@*":
   version "21.0.0"
