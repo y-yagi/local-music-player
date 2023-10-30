@@ -14,7 +14,7 @@
   "dependencies": {
     "classnames": "2.3.2",
     "dexie": "^3.2.4",
-    "next": "^13.4",
+    "next": "^14.0",
     "react": "^18.2.0",
     "react-audio-player": "^0.17.0",
     "react-dom": "^18.2.0",
