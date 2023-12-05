@@ -21,7 +21,7 @@
     "react-howler": "^5.2.0",
     "swr": "^2.2.4",
     "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.1",
