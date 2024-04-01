@@ -27,7 +27,7 @@
     "@playwright/test": "^1.42.1",
     "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.28",
+    "@types/node": "^20.12.2",
     "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.22",
     "@types/wicg-mediasession": "^1.1.8",
