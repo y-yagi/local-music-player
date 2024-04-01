@@ -723,12 +723,10 @@ detective-typescript@^7.0.0:
     node-source-walk "^4.2.0"
     typescript "^3.9.7"
 
-dexie@^3.2.6:
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/dexie/-/dexie-3.2.6.tgz#c5980e4228d7e81744bb324c81459afa6604da41"
-  integrity sha512-R9VzQ27/cncQymoAeD1kfu66NUrdxcnMNXVfEoFLnQ+apVVbS4++veUcSGxft9V++zaeiLkMAREOMf8EwgR/Vw==
-  dependencies:
-    karma-safari-launcher "^1.0.0"
+dexie@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-4.0.1.tgz#0b2aa9a39f706f0bb970134047afaa326a3c923e"
+  integrity sha512-wSNn+TcCh+DuE2pdg058K3MhxA4g+IiZlW7yGz4cMd/t3z2rJXZcV3HDxZljbrICU2Iq0qY4UHnbolTMK/+bcA==
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -1167,11 +1165,6 @@ json5@^1.0.1:
   integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
   dependencies:
     minimist "^1.2.0"
-
-karma-safari-launcher@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/karma-safari-launcher/-/karma-safari-launcher-1.0.0.tgz#96982a2cc47d066aae71c553babb28319115a2ce"
-  integrity sha512-qmypLWd6F2qrDJfAETvXDfxHvKDk+nyIjpH9xIeI3/hENr0U3nuqkxaftq73PfXZ4aOuOChA6SnLW4m4AxfRjQ==
 
 levn@~0.3.0:
   version "0.3.0"
