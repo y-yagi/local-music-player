@@ -28,7 +28,7 @@
     "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.28",
-    "@types/react": "^18.2.52",
+    "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.22",
     "@types/wicg-mediasession": "^1.1.8",
     "next-unused": "^0.0.6",
