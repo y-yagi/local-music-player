@@ -33,7 +33,7 @@
     "@types/wicg-mediasession": "^1.1.8",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^6.7.2",
-    "prettier": "^3.2.5"
+    "prettier": "^3.3.2"
   },
   "next-unused": {
     "include": [
