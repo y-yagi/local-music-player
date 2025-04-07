@@ -19,7 +19,7 @@
     "react-audio-player": "^0.17.0",
     "react-dom": "^18.3.1",
     "react-howler": "^5.2.0",
-    "swr": "^2.3.0",
+    "swr": "^2.3.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },
