@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "classnames": "2.5.1",
-    "dexie": "^4.0.10",
+    "dexie": "^4.0.11",
     "next": "^15.1",
     "react": "^18.3.1",
     "react-audio-player": "^0.17.0",
