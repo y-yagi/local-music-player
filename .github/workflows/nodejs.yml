@@ -22,9 +22,9 @@ jobs:
       id: pnpm-cache # use this to check for `cache-hit` (`steps.pnpm-cache.outputs.cache-hit != 'true'`)
       with:
         path: ${{ steps.pnpm-store-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        key: ${{ runner.os }}-pnpm-v2-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-
+          ${{ runner.os }}-pnpm-v2
     - name: Install dependencies
       run: pnpm install
     - name: Run prettier
