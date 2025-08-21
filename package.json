@@ -6,10 +6,10 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc",
-    "pretty": "yarn prettier --write .",
-    "pretty-check": "yarn prettier --check .",
+    "pretty": "pnpm prettier --write .",
+    "pretty-check": "pnpm prettier --check .",
     "find:unused": "next-unused",
-    "test": "yarn playwright test --project=chromium"
+    "test": "pnpm playwright test --project=chromium"
   },
   "dependencies": {
     "classnames": "2.5.1",
