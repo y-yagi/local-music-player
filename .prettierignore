@@ -3,3 +3,4 @@
 *.md
 /.github/
 tsconfig.json
+pnpm-lock.yaml
