@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: corepack enable
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -13,14 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Run yarn install
-        run: yarn install
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Start server
-        run: yarn run dev &
+        run: pnpm dev &
 
       - name: Install browsers
-        run: yarn playwright install
+        run: pnpm playwright install
 
       - name: Run tests
-        run: yarn test
+        run: pnpm test
