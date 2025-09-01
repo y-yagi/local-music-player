@@ -32,7 +32,7 @@
     "@types/react-dom": "^19.1.6",
     "@types/wicg-mediasession": "^1.1.8",
     "next-unused": "^0.0.6",
-    "postcss-preset-env": "^6.7.2",
+    "postcss-preset-env": "^10.3.1",
     "prettier": "^3.6.2"
   },
   "next-unused": {
