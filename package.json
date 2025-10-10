@@ -24,7 +24,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@playwright/test": "^1.54.2",
+    "@playwright/test": "^1.56.0",
     "@types/classnames": "^2.3.4",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.6.2",
