@@ -2,7 +2,7 @@ import MusicDatase from "../lib/music_database";
 import Player from "./player";
 import Uploader from "./uploader";
 import SectionSeparotr from "./section-separator";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import MusicType from "../types/music";
@@ -57,9 +57,9 @@ const Musics = () => {
     fetchData();
   }
 
-  if (musics === undefined) {
+  useEffect(() => {
     fetchData();
-  }
+  }, [sort]);
 
   return (
     <div>
