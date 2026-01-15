@@ -29,5 +29,5 @@
 }
 
 audio {
-  width: 800px;
+  width: min(600px, 100%);
 }
