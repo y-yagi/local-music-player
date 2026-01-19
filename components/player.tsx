@@ -1,16 +1,17 @@
 import ReactAudioPlayer from "react-audio-player";
+import { useEffect, useRef } from "react";
 
 const SKIP_INTERVALS = [60, 10];
 
 type Props = {
   url: string;
   title: string;
+  seekTime?: number | null;
+  onSeekApplied?: () => void;
 };
 
 const Player = (props: Props) => {
-  if (props.url === "") {
-    return <section></section>;
-  }
+  const audioRef = useRef<ReactAudioPlayer>(null);
 
   if (typeof navigator !== "undefined" && navigator && navigator.mediaSession) {
     navigator.mediaSession.metadata = new MediaMetadata({
@@ -77,6 +78,43 @@ const Player = (props: Props) => {
     skipBy(offset);
   }
 
+  useEffect(() => {
+    if (props.seekTime === null || props.seekTime === undefined) {
+      return;
+    }
+
+    const audio = audioRef.current?.audioEl.current;
+    if (!audio) {
+      return;
+    }
+
+    const applySeek = () => {
+      audio.currentTime = props.seekTime ?? 0;
+      audio.play().catch(() => {});
+      props.onSeekApplied?.();
+    };
+
+    if (audio.readyState >= 1) {
+      applySeek();
+      return;
+    }
+
+    const handleLoaded = () => {
+      applySeek();
+      audio.removeEventListener("loadedmetadata", handleLoaded);
+    };
+
+    audio.addEventListener("loadedmetadata", handleLoaded);
+
+    return () => {
+      audio.removeEventListener("loadedmetadata", handleLoaded);
+    };
+  }, [props.seekTime, props.onSeekApplied]);
+
+  if (props.url === "") {
+    return <section></section>;
+  }
+
   // TODO: Get format from title.
   return (
     <section>
@@ -85,7 +123,15 @@ const Player = (props: Props) => {
           {props.title}
         </span>
       </div>
-      {<ReactAudioPlayer src={props.url} autoPlay controls loop />}
+      {
+        <ReactAudioPlayer
+          ref={audioRef}
+          src={props.url}
+          autoPlay
+          controls
+          loop
+        />
+      }
       <div className="mt-4 flex flex-wrap gap-3" aria-label="Skip controls">
         {SKIP_INTERVALS.map((seconds) => (
           <div key={seconds} className="flex gap-2">
