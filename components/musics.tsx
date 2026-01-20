@@ -28,12 +28,14 @@ const Musics = () => {
   }, []);
   const router = useRouter();
   const { sort } = router.query;
+  const sortParam = Array.isArray(sort) ? sort[0] : sort;
+  const isLoading = musics === undefined;
 
   async function fetchData() {
     const db = new MusicDatase();
     try {
       const musics = await db.musics.orderBy("id").toArray();
-      if (sort === "title") {
+      if (sortParam === "title") {
         musics.sort(function (a, b) {
           if (
             a.name === undefined ||
@@ -81,7 +83,7 @@ const Musics = () => {
 
   useEffect(() => {
     fetchData();
-  }, [sort]);
+  }, [sortParam]);
 
   useEffect(() => {
     if (typeof document === "undefined") {
@@ -196,10 +198,13 @@ const Musics = () => {
         seekTime={seekTime}
         onSeekApplied={handleSeekApplied}
       />
-      <div className="flex flex-wrap gap-3 my-4" aria-label="Bookmark controls">
+      <div
+        className="flex flex-col gap-3 my-4 sm:flex-row"
+        aria-label="Bookmark controls"
+      >
         {isPlaying && (
           <button
-            className="bg-purple-600 hover:bg-purple-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-full"
+            className="bg-purple-600 hover:bg-purple-500 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-full w-full sm:w-auto"
             type="button"
             onClick={handleBookmarkSave}
             disabled={currentMusicId === null}
@@ -209,7 +214,7 @@ const Musics = () => {
         )}
         {bookmark && (
           <button
-            className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full"
+            className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-2 px-4 rounded-full w-full sm:w-auto"
             type="button"
             onClick={handleBookmarkPlay}
           >
@@ -219,49 +224,72 @@ const Musics = () => {
       </div>
       <hr />
 
-      <div className="flex justify-center">
-        <Link href="?sort=title">Sort by Title</Link>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <span className="text-sm text-gray-700">Sort:</span>
+        <Link
+          href="/"
+          className={`rounded-full border px-3 py-1 text-sm ${sortParam ? "border-gray-300" : "border-blue-500 text-blue-600"}`}
+        >
+          Default
+        </Link>
+        <Link
+          href="?sort=title"
+          className={`rounded-full border px-3 py-1 text-sm ${sortParam === "title" ? "border-blue-500 text-blue-600" : "border-gray-300"}`}
+        >
+          Title A→Z
+        </Link>
       </div>
-      <table className="table-auto">
-        <thead>
-          <tr>
-            <th className="px-4 py-2"></th>
-            <th className="px-4 py-2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {musics?.map((music) => {
-            return (
-              <tr key={music.id} className="border-2 border-gray-600">
-                <td className="border px-4 py-2 space-x-2 text-center block lg:table-cell">
-                  {music.name}
-                </td>
-                <td className="border px-4 py-2 space-x-2 text-center block lg:table-cell">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => handleClick(music)}
-                  >
-                    Play
-                  </button>
-                  <button
-                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
-                    onClick={() => {
-                      if (
-                        window.confirm(
-                          `Are you sure to delete '${music.name}'?`,
-                        )
-                      )
-                        handleDestroy(music.id);
-                    }}
-                  >
-                    Destroy
-                  </button>
-                </td>
+      <div className="mt-4 rounded-lg border border-gray-200 shadow-sm">
+        <div className="overflow-x-auto">
+          <table className="table-auto w-full text-sm">
+            <thead>
+              <tr>
+                <th className="px-4 py-2 text-left text-gray-600">Title</th>
+                <th className="px-4 py-2 text-center text-gray-600">Actions</th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {musics?.map((music) => {
+                return (
+                  <tr key={music.id} className="border-t border-gray-100">
+                    <td className="px-4 py-3 text-center sm:text-left">
+                      {music.name || "Untitled track"}
+                    </td>
+                    <td className="px-4 py-3">
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-center">
+                        <button
+                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full sm:w-auto"
+                          onClick={() => handleClick(music)}
+                        >
+                          Play
+                        </button>
+                        <button
+                          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full w-full sm:w-auto"
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                `Are you sure to delete '${music.name}'?`,
+                              )
+                            )
+                              handleDestroy(music.id);
+                          }}
+                        >
+                          Destroy
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        {!isLoading && (!musics || musics.length === 0) && (
+          <p className="px-4 py-6 text-center text-gray-600">
+            No tracks yet. Upload a file to get started.
+          </p>
+        )}
+      </div>
       <SectionSeparotr />
       <Uploader onFileUploaded={handleUpload} />
     </div>

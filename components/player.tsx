@@ -117,7 +117,7 @@ const Player = (props: Props) => {
 
   // TODO: Get format from title.
   return (
-    <section>
+    <section className="space-y-3">
       <div className="md:flex">
         <span className="block mt-1 text-lg leading-tight font-semibold text-green-500 hover:underline space-x-4">
           {props.title}
@@ -130,6 +130,7 @@ const Player = (props: Props) => {
           autoPlay
           controls
           loop
+          className="w-full"
         />
       }
       <div className="mt-4 flex flex-wrap gap-3" aria-label="Skip controls">
