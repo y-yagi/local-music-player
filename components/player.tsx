@@ -145,7 +145,7 @@ const Player = (props: Props) => {
             </button>
           </div>
         ))}
-        {SKIP_INTERVALS.reverse().map((seconds) => (
+        {SKIP_INTERVALS.toReversed().map((seconds) => (
           <div key={seconds} className="flex gap-2">
             <button
               type="button"
