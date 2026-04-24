@@ -16,22 +16,22 @@ importers:
         version: 4.2.1
       next:
         specifier: ^16.0.10
-        version: 16.0.10(@playwright/test@1.59.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 16.0.10(@playwright/test@1.59.1)(react-dom@19.2.1(react@19.2.5))(react@19.2.5)
       react:
-        specifier: ^19.2.1
-        version: 19.2.1
+        specifier: ^19.2.5
+        version: 19.2.5
       react-audio-player:
         specifier: ^0.17.0
-        version: 0.17.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+        version: 0.17.0(react-dom@19.2.1(react@19.2.5))(react@19.2.5)
       react-dom:
         specifier: ^19.2.1
-        version: 19.2.1(react@19.2.1)
+        version: 19.2.1(react@19.2.5)
       react-howler:
         specifier: ^5.2.0
         version: 5.2.0
       swr:
         specifier: ^2.4.1
-        version: 2.4.1(react@19.2.1)
+        version: 2.4.1(react@19.2.5)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -52,11 +52,11 @@ importers:
         specifier: ^25.6.0
         version: 25.6.0
       '@types/react':
-        specifier: ^19.2.7
-        version: 19.2.7
+        specifier: ^19.2.14
+        version: 19.2.14
       '@types/react-dom':
         specifier: ^19.2.3
-        version: 19.2.3(@types/react@19.2.7)
+        version: 19.2.3(@types/react@19.2.14)
       '@types/wicg-mediasession':
         specifier: ^1.1.8
         version: 1.1.8
@@ -683,8 +683,8 @@ packages:
     peerDependencies:
       '@types/react': ^19.2.0
 
-  '@types/react@19.2.7':
-    resolution: {integrity: sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==}
+  '@types/react@19.2.14':
+    resolution: {integrity: sha512-ilcTH/UniCkMdtexkoCN0bI7pMcJDvmQFPvuPvmEaYA/NSfFTAgdUSLAoVjaRJm7+6PvcM+q1zYOwS4wTYMF9w==}
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
@@ -1732,8 +1732,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react@19.2.1:
-    resolution: {integrity: sha512-DGrYcCWK7tvYMnWh79yrPHt+vdx9tY+1gPZa7nJQtO/p8bLTDaHp4dzwEhQB7pZ4Xe3ok4XKuEPrVuc+wlpkmw==}
+  react@19.2.5:
+    resolution: {integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==}
     engines: {node: '>=0.10.0'}
 
   read-cache@1.0.0:
@@ -2586,11 +2586,11 @@ snapshots:
     dependencies:
       undici-types: 7.19.2
 
-  '@types/react-dom@19.2.3(@types/react@19.2.7)':
+  '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
-      '@types/react': 19.2.7
+      '@types/react': 19.2.14
 
-  '@types/react@19.2.7':
+  '@types/react@19.2.14':
     dependencies:
       csstype: 3.2.3
 
@@ -3286,15 +3286,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  next@16.0.10(@playwright/test@1.59.1)(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
+  next@16.0.10(@playwright/test@1.59.1)(react-dom@19.2.1(react@19.2.5))(react@19.2.5):
     dependencies:
       '@next/env': 16.0.10
       '@swc/helpers': 0.5.15
       caniuse-lite: 1.0.30001757
       postcss: 8.4.31
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
-      styled-jsx: 5.1.6(react@19.2.1)
+      react: 19.2.5
+      react-dom: 19.2.1(react@19.2.5)
+      styled-jsx: 5.1.6(react@19.2.5)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.0.10
       '@next/swc-darwin-x64': 16.0.10
@@ -3720,15 +3720,15 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-audio-player@0.17.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
+  react-audio-player@0.17.0(react-dom@19.2.1(react@19.2.5))(react@19.2.5):
     dependencies:
       prop-types: 15.8.1
-      react: 19.2.1
-      react-dom: 19.2.1(react@19.2.1)
+      react: 19.2.5
+      react-dom: 19.2.1(react@19.2.5)
 
-  react-dom@19.2.1(react@19.2.1):
+  react-dom@19.2.1(react@19.2.5):
     dependencies:
-      react: 19.2.1
+      react: 19.2.5
       scheduler: 0.27.0
 
   react-howler@5.2.0:
@@ -3740,7 +3740,7 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react@19.2.1: {}
+  react@19.2.5: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -3897,10 +3897,10 @@ snapshots:
 
   strip-json-comments@2.0.1: {}
 
-  styled-jsx@5.1.6(react@19.2.1):
+  styled-jsx@5.1.6(react@19.2.5):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.1
+      react: 19.2.5
 
   stylus-lookup@3.0.2:
     dependencies:
@@ -3929,11 +3929,11 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swr@2.4.1(react@19.2.1):
+  swr@2.4.1(react@19.2.5):
     dependencies:
       dequal: 2.0.3
-      react: 19.2.1
-      use-sync-external-store: 1.6.0(react@19.2.1)
+      react: 19.2.5
+      use-sync-external-store: 1.6.0(react@19.2.5)
 
   tailwindcss@3.4.17:
     dependencies:
@@ -4023,9 +4023,9 @@ snapshots:
       escalade: 3.2.0
       picocolors: 1.1.1
 
-  use-sync-external-store@1.6.0(react@19.2.1):
+  use-sync-external-store@1.6.0(react@19.2.5):
     dependencies:
-      react: 19.2.1
+      react: 19.2.5
 
   util-deprecate@1.0.2: {}
 
