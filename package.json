@@ -1,6 +1,7 @@
 {
   "name": "local-music-player",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.0.4",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -41,9 +42,9 @@
     ]
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "volta": {
-    "node": "20.10.0"
+    "node": "24.15.0"
   }
 }
