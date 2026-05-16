@@ -1,6 +1,7 @@
 {
   "name": "local-music-player",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.0.4",
   "scripts": {
     "dev": "next",
     "build": "next build",
