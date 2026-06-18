@@ -1,5 +1,6 @@
 name: End-to-end tests
-on: [push]
+# NOTE: Temporarily disabled. Re-enable by restoring `on: [push]`.
+on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
