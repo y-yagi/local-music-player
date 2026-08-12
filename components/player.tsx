@@ -13,40 +13,63 @@ type Props = {
 const Player = (props: Props) => {
   const audioRef = useRef<ReactAudioPlayer>(null);
 
-  if (typeof navigator !== "undefined" && navigator && navigator.mediaSession) {
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: props.title,
-    });
-    navigator.mediaSession.playbackState = "playing";
-    navigator.mediaSession.setActionHandler("play", play);
-    navigator.mediaSession.setActionHandler("pause", pause);
-    navigator.mediaSession.setActionHandler("seekbackward", handleSeekBackward);
-    navigator.mediaSession.setActionHandler("seekforward", handleSeekForward);
-  }
-
-  function play() {
+  useEffect(() => {
     if (
-      typeof navigator !== "undefined" &&
-      navigator &&
-      navigator.mediaSession
+      props.url === "" ||
+      typeof navigator === "undefined" ||
+      !navigator.mediaSession
     ) {
-      const audio = document.querySelector("audio");
+      return;
+    }
+
+    const mediaSession = navigator.mediaSession;
+    const audio = audioRef.current?.audioEl.current;
+    if (!audio) {
+      return;
+    }
+
+    mediaSession.metadata = new MediaMetadata({ title: props.title });
+
+    function syncPlaybackState() {
+      mediaSession.playbackState = audio!.paused ? "paused" : "playing";
+    }
+
+    function play() {
       audio?.play();
-      navigator.mediaSession.playbackState = "playing";
     }
-  }
 
-  function pause() {
-    if (
-      typeof navigator !== "undefined" &&
-      navigator &&
-      navigator.mediaSession
-    ) {
-      const audio = document.querySelector("audio");
+    function pause() {
       audio?.pause();
-      navigator.mediaSession.playbackState = "paused";
     }
-  }
+
+    function handleSeekBackward(details?: MediaSessionActionDetails) {
+      const offset = details?.seekOffset ?? SKIP_INTERVALS[0];
+      skipBy(-offset);
+    }
+
+    function handleSeekForward(details?: MediaSessionActionDetails) {
+      const offset = details?.seekOffset ?? SKIP_INTERVALS[0];
+      skipBy(offset);
+    }
+
+    mediaSession.setActionHandler("play", play);
+    mediaSession.setActionHandler("pause", pause);
+    mediaSession.setActionHandler("seekbackward", handleSeekBackward);
+    mediaSession.setActionHandler("seekforward", handleSeekForward);
+
+    audio.addEventListener("play", syncPlaybackState);
+    audio.addEventListener("pause", syncPlaybackState);
+    syncPlaybackState();
+
+    return () => {
+      audio.removeEventListener("play", syncPlaybackState);
+      audio.removeEventListener("pause", syncPlaybackState);
+      mediaSession.setActionHandler("play", null);
+      mediaSession.setActionHandler("pause", null);
+      mediaSession.setActionHandler("seekbackward", null);
+      mediaSession.setActionHandler("seekforward", null);
+    };
+  }, [props.url, props.title]);
 
   function skipBy(offset: number) {
     if (typeof document === "undefined") {
@@ -66,16 +89,6 @@ const Player = (props: Props) => {
     }
 
     audio.currentTime = Math.max(0, targetTime);
-  }
-
-  function handleSeekBackward(details?: MediaSessionActionDetails) {
-    const offset = details?.seekOffset ?? SKIP_INTERVALS[0];
-    skipBy(-offset);
-  }
-
-  function handleSeekForward(details?: MediaSessionActionDetails) {
-    const offset = details?.seekOffset ?? SKIP_INTERVALS[0];
-    skipBy(offset);
   }
 
   useEffect(() => {
