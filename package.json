@@ -20,7 +20,7 @@
     "react-audio-player": "^0.17.0",
     "react-dom": "^19.2.7",
     "react-howler": "^5.2.0",
-    "swr": "^2.4.2",
+    "swr": "^2.5.1",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
