@@ -1,16 +1,26 @@
-@tailwind base;
+@import "tailwindcss";
 
-/* Write your own custom base styles here */
+@theme {
+  --color-accent-1: #fafafa;
+  --color-accent-2: #eaeaea;
+  --color-accent-7: #333;
+  --color-success: #0070f3;
+  --color-cyan: #79ffe1;
 
-/* Start purging... */
-@tailwind components;
-/* Stop purging. */
+  --spacing-28: 7rem;
 
-/* Write you own custom component styles here */
+  --tracking-tighter: -0.04em;
 
-/* Start purging... */
-@tailwind utilities;
-/* Stop purging. */
+  --leading-tight: 1.2;
+
+  --text-5xl: 2.5rem;
+  --text-6xl: 2.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6.25rem;
+
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
 
 .btn {
   @apply font-bold py-2 px-4 rounded;
