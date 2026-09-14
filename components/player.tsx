@@ -28,18 +28,37 @@ const Player = (props: Props) => {
       return;
     }
 
+    // Don't set `mediaSession.playbackState`. Chrome ignores a declared
+    // "paused" state but lets a declared "playing" state override the actual
+    // one. If "playing" is declared while the audio is not actually playing,
+    // Chrome keeps routing the headset button to "pause" and drops it, so
+    // playback can never be resumed. Let the browser derive the state instead.
     mediaSession.metadata = new MediaMetadata({ title: props.title });
 
-    function syncPlaybackState() {
-      mediaSession.playbackState = audio!.paused ? "paused" : "playing";
-    }
-
     function play() {
-      audio?.play();
+      if (!audio!.error) {
+        audio!.play().catch((e) => console.error("Failed to play", e));
+        return;
+      }
+
+      // The element can't recover from an error by play() alone, so reload
+      // the source and resume from the same position.
+      const resumeTime = audio!.currentTime;
+      const src = audio!.src;
+      const handleLoaded = () => {
+        // Another track was selected while reloading.
+        if (audio!.src !== src) {
+          return;
+        }
+        audio!.currentTime = resumeTime;
+        audio!.play().catch((e) => console.error("Failed to play", e));
+      };
+      audio!.addEventListener("loadedmetadata", handleLoaded, { once: true });
+      audio!.load();
     }
 
     function pause() {
-      audio?.pause();
+      audio!.pause();
     }
 
     function handleSeekBackward(details?: MediaSessionActionDetails) {
@@ -57,13 +76,7 @@ const Player = (props: Props) => {
     mediaSession.setActionHandler("seekbackward", handleSeekBackward);
     mediaSession.setActionHandler("seekforward", handleSeekForward);
 
-    audio.addEventListener("play", syncPlaybackState);
-    audio.addEventListener("pause", syncPlaybackState);
-    syncPlaybackState();
-
     return () => {
-      audio.removeEventListener("play", syncPlaybackState);
-      audio.removeEventListener("pause", syncPlaybackState);
       mediaSession.setActionHandler("play", null);
       mediaSession.setActionHandler("pause", null);
       mediaSession.setActionHandler("seekbackward", null);
