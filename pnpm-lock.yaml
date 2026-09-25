@@ -67,8 +67,8 @@ importers:
         specifier: ^11.5.0
         version: 11.5.0(postcss@8.5.26)
       prettier:
-        specifier: ^3.9.6
-        version: 3.9.6
+        specifier: ^3.9.8
+        version: 3.9.8
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -1877,8 +1877,8 @@ packages:
     engines: {node: ^10.13 || ^12 || >=14}
     hasBin: true
 
-  prettier@3.9.6:
-    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
+  prettier@3.9.8:
+    resolution: {integrity: sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3912,7 +3912,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  prettier@3.9.6: {}
+  prettier@3.9.8: {}
 
   pretty-format@30.0.5:
     dependencies:
