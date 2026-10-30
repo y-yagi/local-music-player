@@ -58,8 +58,8 @@ importers:
         specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.17)
       '@types/wicg-mediasession':
-        specifier: ^1.1.8
-        version: 1.1.8
+        specifier: ^1.1.9
+        version: 1.1.9
       next-unused:
         specifier: ^0.0.6
         version: 0.0.6
@@ -844,8 +844,8 @@ packages:
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
 
-  '@types/wicg-mediasession@1.1.8':
-    resolution: {integrity: sha512-gUP5M+GG4d4V6kg14wAF7qcdwjmwKbumpM7Sw1MNxnu9uQQpaRHMjuluajSXwtDpnd1FSFpLKEu1B/LPtnhxKw==}
+  '@types/wicg-mediasession@1.1.9':
+    resolution: {integrity: sha512-o2iKAzHEs1WJivmi9bDk2ycCeCzZSH0P6YtZ3dOpoZXMbpUiX0dE6vNV3e41YRJSo2TtxXa0Qo6BaL8rqMC7lA==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -2838,7 +2838,7 @@ snapshots:
 
   '@types/stack-utils@2.0.3': {}
 
-  '@types/wicg-mediasession@1.1.8': {}
+  '@types/wicg-mediasession@1.1.9': {}
 
   '@types/yargs-parser@21.0.3': {}
 

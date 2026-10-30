@@ -31,7 +31,7 @@
     "@types/node": "^26.1.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "@types/wicg-mediasession": "^1.1.8",
+    "@types/wicg-mediasession": "^1.1.9",
     "next-unused": "^0.0.6",
     "postcss-preset-env": "^11.5.0",
     "prettier": "^3.9.6",
